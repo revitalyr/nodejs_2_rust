@@ -240,6 +240,6 @@ leptos
 alloy
 axum
 smart-contracts
-cli
-cargo
+cli-tools
+cargo-workspace
 ```
