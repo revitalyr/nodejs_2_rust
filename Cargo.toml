@@ -1,0 +1,97 @@
+[workspace]
+members = [
+    "crates/server",
+    "crates/frontend", 
+    "crates/smart-contracts",
+    "crates/shared",
+    "crates/utils",
+    "crates/cli",
+    "hakari",
+    "tests",
+    "examples/demo"
+]
+resolver = "2"
+
+[workspace.dependencies]
+# Core dependencies - pinned for consistency
+# Web framework ecosystem
+axum = "0.7"
+tokio = { version = "1", features = ["full"] }
+tower = "0.4"
+tower-http = { version = "0.5", features = ["cors", "trace"] }
+hyper = { version = "1.4", features = ["full"] }
+
+# Ethereum integration - modern Alloy ecosystem
+alloy = { version = "0.3", default-features = false, features = ["full"] }
+alloy-provider = { version = "0.3", features = ["ws", "reqwest-rustls-tls"] }
+alloy-rpc-types = "0.3"
+alloy-signer = "0.3"
+alloy-contract = "0.3"
+alloy-sol-types = "0.8"
+alloy-json-rpc = "0.4"
+alloy-transport-ws = "0.3"
+alloy-transport-http = "0.3"
+alloy-network = "0.3"
+alloy-primitives = "0.8"
+
+# Serialization ecosystem
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+toml = "0.8"
+
+# Database ecosystem
+sqlx = { version = "0.7", features = ["runtime-tokio-rustls", "postgres", "uuid", "chrono", "migrate"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+log = "0.4"
+eyre = "0.6"
+
+# Utility ecosystem
+dotenv = "0.15"
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+uuid = { version = "1.10", features = ["v4", "serde"] }
+chrono = { version = "0.4", features = ["serde"] }
+reqwest = { version = "0.11", default-features = false, features = ["json"] }
+futures = "0.3"
+futures-util = "0.3"
+async-trait = "0.1"
+
+# Frontend dependencies
+tachys = "0.2"
+leptos = { version = "0.8", features = ["csr"] }
+leptos_axum = { version = "0.8" }
+leptos_meta = { version = "0.8" }
+leptos_router = { version = "0.8" }
+leptos_reactive = { version = "0.8" }
+leptos_macro = { version = "0.8" }
+console_log = { version = "1.0" }
+console_error_panic_hook = { version = "0.1" }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["console", "Request", "Response", "Window"] }
+js-sys = "0.3"
+getrandom = { version = "0.2.15", features = ["js"] }
+gloo = "0.11"
+gloo-net = "0.5"
+gloo-storage = "0.3"
+gloo-utils = "0.2"
+
+# CLI ecosystem
+clap = { version = "4.4", features = ["derive"] }
+colored = "2.0"
+indicatif = "0.17"
+dialoguer = "0.10"
+
+# Testing ecosystem
+tokio-test = "0.4"
+serial_test = "3.0"
+
+# Additional utilities
+rand = "0.8"
+regex = "1.10"
+once_cell = "1.19"
+parking_lot = "0.12"
+url = "2.5"

@@ -1,0 +1,21 @@
+[package]
+name = "ethereum-boilerplate-shared"
+version = "0.1.0"
+edition = "2021"
+description = "Shared types and utilities for Ethereum Boilerplate Rust Edition"
+
+[dependencies]
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Ethereum integration
+alloy = { workspace = true }
+alloy-rpc-types = { workspace = true }
+alloy-primitives = { workspace = true }
+
+# Time
+chrono = { workspace = true }
+
+# UUID
+uuid = { workspace = true }

@@ -1,0 +1,57 @@
+[package]
+name = "ethereum-boilerplate-server"
+version = "0.1.0"
+edition = "2021"
+description = "Server component of Ethereum Boilerplate Rust Edition"
+
+[dependencies]
+# Web framework
+axum = { workspace = true }
+tokio = { workspace = true }
+tower = { workspace = true }
+tower-http = { workspace = true }
+
+# Ethereum integration
+alloy = { workspace = true }
+alloy-provider = { workspace = true }
+alloy-rpc-types = { workspace = true }
+alloy-signer = { workspace = true }
+alloy-contract = { workspace = true }
+alloy-transport-http = { workspace = true }
+alloy-network = { workspace = true }
+
+
+# Serialization
+serde = { workspace = true }
+serde_json = { workspace = true }
+
+# Database
+sqlx = { workspace = true }
+uuid = { workspace = true }
+chrono = { workspace = true }
+
+# Error handling
+anyhow = { workspace = true }
+thiserror = { workspace = true }
+
+# Utilities
+ethereum-boilerplate-utils = { path = "../utils" }
+ethereum-boilerplate-shared = { path = "../shared" }
+
+# URL parsing
+url = { workspace = true }
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# Configuration
+dotenv = { workspace = true }
+reqwest = { workspace = true }
+futures = { workspace = true }
+
+# Additional server-specific dependencies
+clap = { version = "4.0", features = ["derive"] }
+dotenvy = "0.15.7"
+
+[[bin]]
+name = "server"
+path = "src/main.rs"

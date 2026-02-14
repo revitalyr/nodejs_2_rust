@@ -1,0 +1,41 @@
+[package]
+name = "ethereum-boilerplate-cli"
+version = "0.1.0"
+edition = "2021"
+description = "CLI for Ethereum Boilerplate Rust Edition"
+
+[[bin]]
+name = "ethereum-boilerplate"
+path = "src/main.rs"
+
+[dependencies]
+# CLI framework
+clap = { workspace = true }
+colored = { workspace = true }
+indicatif = { workspace = true }
+dialoguer = { workspace = true }
+
+# Ethereum
+alloy = { workspace = true }
+alloy-provider = { workspace = true }
+alloy-rpc-types = { workspace = true }
+alloy-signer = { workspace = true }
+alloy-contract = { workspace = true }
+alloy-transport-http = { workspace = true }
+alloy-network = { workspace = true }
+
+# Utilities
+ethereum-boilerplate-utils = { path = "../utils" }
+ethereum-boilerplate-shared = { path = "../shared" }
+tokio = { workspace = true }
+serde = { workspace = true }
+serde_json = { workspace = true }
+anyhow = { workspace = true }
+rand = { workspace = true }
+
+# Logging
+tracing = { workspace = true }
+tracing-subscriber = { workspace = true }
+
+# Config
+dotenv = { workspace = true }

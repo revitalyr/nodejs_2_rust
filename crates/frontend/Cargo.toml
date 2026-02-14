@@ -1,0 +1,36 @@
+[package]
+name = "ethereum-boilerplate-frontend"
+version = "0.1.0"
+edition = "2021"
+description = "Frontend component of Ethereum Boilerplate Rust Edition"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+# WebAssembly
+wasm-bindgen = { workspace = true }
+wasm-bindgen-futures = { workspace = true }
+console_error_panic_hook = { workspace = true }
+getrandom = { workspace = true }
+
+# Async
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+uuid = { workspace = true, features = ["v4", "js", "serde"] }
+console_log = "1.0.0"
+log = { workspace = true, features = ["max_level_debug"] }
+
+[target.'cfg(not(target_arch = "wasm32"))'.dependencies]
+tokio = { workspace = true }
+uuid = { workspace = true, features = ["v4", "serde"] }
+console_log = "1.0.0"
+log = "0.4.29"
+
+[dev-dependencies]
+wasm-bindgen-test = "0.3"
+
+[package.metadata.leptos]
+# The name of the generated WASM file (without the .wasm extension)
+wasm-name = "ethereum_boilerplate_frontend"
+# The features to use when compiling the crate for the client side
+client-features = []
